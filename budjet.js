@@ -8,7 +8,7 @@ class App {
     date;
     insert;
     budgets = [];
-    constructor(){
+    constructor() {
         this.modalOpen = document.querySelector('#open');
         this.modalClose = document.querySelector('#close');
         this.backdrop = document.querySelector('#backdrop');
@@ -20,30 +20,38 @@ class App {
         this.event();
     }
 
-    openModalHandler(){
+    openModalHandler() {
         this.backdrop.classList.add('open');
     }
 
-    closeModalHandler(){
+    closeModalHandler() {
         this.backdrop.classList.remove('open')
     }
-
-    insertBudget(){
-        const budget = {
-            description: this.description.value,
-            amount: +this.amount.value,
-            type: this.type.value,
-            date: this.date.value,
-            id: Math.random().toString().split('.')[1]
+    insertBudget() {
+        
+        if(this.amount.value.trim() === '' && this.description.value.trim() === '' && this.date.value ===""){
+            alert("buh medeelel oruulah shaardlagatai")
+        }else{
+            const budget = {
+                description: this.description.value,
+                amount: +this.amount.value,
+                type: this.type.value,
+                date: this.date.value,
+                id: Math.random().toString().split('.')[1]
+            }
+            this.budgets.push(budget);
+            this.closeModalHandler();
+            resetForm()
         }
-        this.budgets.push(budget);
-        this.closeModalHandler();
+        function resetForm(){
+            
+        }
     }
 
-    event(){
-        this.modalOpen.addEventListener('click' , this.openModalHandler.bind(this))
-        this.modalClose.addEventListener('click' , this.closeModalHandler.bind(this))
-        this.insert.addEventListener('click' , this.insertBudget.bind(this));
+    event() {
+        this.modalOpen.addEventListener('click', this.openModalHandler.bind(this))
+        this.modalClose.addEventListener('click', this.closeModalHandler.bind(this))
+        this.insert.addEventListener('click', this.insertBudget.bind(this));
     }
 }
 
