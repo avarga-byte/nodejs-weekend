@@ -64,7 +64,10 @@ const app = new App();
 // sort
 // filter
 
-
+// Gert
 // 1. ali ng ogogdol hooson buyu dutuu baival, burtgehgui
 // 2. burtgegdsen tohioldold form-g tseverleh
 // 3. updateUI function bichih
+// 4. NodeJS suulgah
+
+// alert('ogogdol dutu!')
