@@ -7,6 +7,10 @@ class App {
     type;
     date;
     insert;
+    tableList;
+    orlogo;
+    zarlaga;
+    uldegdel
     budgets = [];
     constructor() {
         this.modalOpen = document.querySelector('#open');
@@ -17,21 +21,27 @@ class App {
         this.type = document.querySelector('#type');
         this.date = document.querySelector('#date');
         this.insert = document.querySelector('#insert');
+        this.tableList = document.querySelector('#tableList');
+        this.orlogo = document.querySelector('#orlogo')
+        this.zarlaga = document.querySelector('#zargala')
+        this.uldegdel = document.querySelector('#uldegdel')
         this.event();
     }
-
     openModalHandler() {
         this.backdrop.classList.add('open');
     }
 
     closeModalHandler() {
         this.backdrop.classList.remove('open')
+        this.description.value = "";
+        this.amount.value = "";
+        this.date.value = "";
     }
     insertBudget() {
-        
-        if(this.amount.value.trim() === '' && this.description.value.trim() === '' && this.date.value ===""){
+        let Total = 0;
+        if (this.amount.value.trim() === '' && this.description.value.trim() === '' && this.date.value === "") {
             alert("buh medeelel oruulah shaardlagatai")
-        }else{
+        } else {
             const budget = {
                 description: this.description.value,
                 amount: +this.amount.value,
@@ -40,12 +50,37 @@ class App {
                 id: Math.random().toString().split('.')[1]
             }
             this.budgets.push(budget);
-            this.closeModalHandler();
-            resetForm()
+            if(this.type.value === "+"){
+                this.tableList.insertAdjacentHTML('afterbegin',
+                `
+                <tr class="border-b text-center">
+                    <td class="text-left flex items-center gap-3">
+                        <p>${this.description.value}</p>
+                        <i class="fa-solid fa-arrow-up text-green-400"></i>
+                    </td>
+                    <td class="text-green-400">${this.amount.value}</td>
+                    <td>${this.date.value}</td>
+                </tr>
+                `)
+            }else if(this.type.value === "-"){
+                return this.tableList.insertAdjacentHTML('afterbegin',
+                `
+                <tr class="border-b text-center">
+                    <td class="text-left flex items-center gap-3">
+                        <p>${this.description.value}</p>
+                        <i id="arrow" class="fa-solid fa-arrow-down text-red-400"></i>
+                    </td>
+                    <td class="text-red-400">${this.amount.value}</td>
+                    <td>${this.date.value}</td>
+                </tr>
+                `)
+            }
         }
-        function resetForm(){
-            
-        }
+        this.closeModalHandler();
+    }
+    
+    updateUi(){
+        
     }
 
     event() {

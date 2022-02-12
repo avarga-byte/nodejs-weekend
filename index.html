@@ -55,13 +55,13 @@
     <div class="w-full py-12 flex justify-center">
         <div class="bg-green-400 text-white w-[450px] h-[200px] flex flex-col justify-center items-center">
             <h1 class="text-xl">Үлдэгдэл:</h1>
-            <h1 class="text-3xl">2000000</h1>
+            <h1 id="uldegdel" class="text-3xl"></h1>
         </div>
     </div>
     <div class="container mx-auto px-8">
         <div class="flex w-full justify-between items-center">
-            <div class="p-4 bg-green-400 text-white">orlogo: 234342</div>
-            <div class="p-4 bg-red-400 text-white">zarlaga: 7435789</div>
+            <div id="orlogo" class="p-4 bg-green-400 text-white">orlogo: 0</div>
+            <div id="zarlaga" class="p-4 bg-red-400 text-white">zarlaga: 7435789</div>
         </div>
         <div class="w-full mt-4 flex justify-between items-center">
             <select name="" id="">
@@ -75,7 +75,7 @@
                 <option value="">bugd</option>
             </select>
         </div>
-        <table class="mt-4 border w-full">
+        <table class="mt-4 border w-full" >
             <thead>
                 <tr class="border-b border-black">
                     <th>tailbar</th>
@@ -83,23 +83,8 @@
                     <th class="w-[150px]">on sar</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="border-b text-center">
-                    <td class="text-left flex items-center gap-3">
-                        <p>tsalin</p>
-                        <i class="fa-solid fa-arrow-up text-green-400"></i>
-                    </td>
-                    <td class="text-green-400">200000</td>
-                    <td>2022.02.01</td>
-                </tr>
-                <tr class="border-b text-center">
-                    <td class="text-left flex items-center gap-3">
-                        <p>turees</p>
-                        <i class="fa-solid fa-arrow-down text-red-400"></i>
-                    </td>
-                    <td class="text-red-400">200000</td>
-                    <td>2022.02.01</td>
-                </tr>
+            <tbody id="tableList">
+                
             </tbody>
         </table>
     </div>
