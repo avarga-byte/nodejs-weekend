@@ -8,11 +8,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        
+        #backdrop {
+            opacity: 0;
+            visibility: hidden;
+            transition: .4s ease-in-out;
+        }
+        .open {
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body class="bg-gray-100">
-    <button class="p-4 text-white absolute right-4 top-4 bg-green-400 rounded-md">
+    <button id="open" class="p-4 text-white absolute right-4 top-4 bg-green-400 rounded-md">
         Орлого зарлага бүртгэх 
     </button>
     <div id="backdrop" class="w-full h-full bg-black fixed top-0 left-0 bg-opacity-60 flex justify-center items-center">
@@ -23,22 +31,22 @@
                     <input type="text" class="w-full py-2 px-4 bg-gray-100 rounded-md" id="description">
                 </div>
                 <div class="w-1/2">
-                    <label for="description">Mongon dun</label>
+                    <label for="amount">Mongon dun</label>
                     <div class="flex items-center">
-                        <select name="" id="" class="py-2 px-4 text-lg bg-gray-100 rounded-l-md focus:outline-none">
+                        <select id="type" class="py-2 px-4 text-lg bg-gray-100 rounded-l-md focus:outline-none">
                             <option value="-">-</option>
                             <option value="+">+</option>
                         </select>
-                        <input type="number" class="w-full focus:outline-none py-2 px-4 bg-gray-100 rounded-r-md" id="description">
+                        <input type="number" class="w-full focus:outline-none py-2 px-4 bg-gray-100 rounded-r-md" id="amount">
                     </div>
                 </div>
             </div>
-            <input type="date" class="w-full py-2 px-4 bg-gray-100 mt-4 rounded-md">
+            <input id="date" type="date" class="w-full py-2 px-4 bg-gray-100 mt-4 rounded-md">
             <div class="w-full mt-4 flex items-center justify-end gap-3">
-                <button class="bg-red-400 text-white rounded-md py-3 px-6">
+                <button id="close" class="bg-red-400 text-white rounded-md py-3 px-6">
                     Болих
                 </button>
-                <button class="bg-blue-400 text-white rounded-md py-3 px-6">
+                <button id="insert" class="bg-blue-400 text-white rounded-md py-3 px-6">
                     Бүртгэх
                 </button>
             </div>
